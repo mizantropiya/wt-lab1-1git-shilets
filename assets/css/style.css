@@ -1,0 +1,1510 @@
+:root {
+  --blue: #1656aa;
+  --sky: #61d0f6;
+  --pink: #ffadc4;
+  --yellow: #ffe160;
+  --green: #b8ef8d;
+  --sand: #f6e4ba;
+  --paper: #fff8e8;
+  --ink: #252525;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body {
+  margin: 0;
+  overflow-x: hidden;
+  color: var(--ink);
+  background: #f6e7c6;
+  font-family: "Neucha", "Comic Sans MS", cursive;
+}
+img { display: block; max-width: 100%; height: auto; }
+.container { max-width: 1260px; }
+
+/* =========================
+   HERO
+   ========================= */
+.hero {
+  min-height: 735px;
+  background: linear-gradient(180deg, #42bce9 0%, #7dd9f8 68%, #f4e2b8 100%);
+  isolation: isolate;
+}
+.hero-beach {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  min-width: 1100px;
+  height: auto;
+  pointer-events: none;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(58,184,233,.16) 0%, rgba(58,184,233,0) 36%, rgba(255,255,255,0) 100%);
+}
+.hero-content { z-index: 4; min-height: 735px; }
+.hero-copy {
+  position: relative;
+  z-index: 6;
+  width: min(980px, 86vw);
+  padding-top: clamp(2.2rem, 4vw, 4rem);
+}
+.hero h1 {
+  margin: 0;
+  font-family: "Marck Script", "Caveat", cursive;
+  font-size: clamp(4rem, 7.2vw, 7rem);
+  line-height: .95;
+  color: #104da7;
+  text-shadow: 0 2px 0 rgba(255,255,255,.34);
+}
+.yellow-stroke {
+  width: min(520px, 60vw);
+  height: 11px;
+  margin: .35rem auto .55rem;
+  background: #ffe03e;
+  border-radius: 999px;
+  transform: rotate(-2.2deg);
+}
+.hero-copy p {
+  margin: 0;
+  font-family: "Caveat", cursive;
+  font-size: clamp(1.7rem, 3vw, 2.8rem);
+  font-weight: 700;
+  color: #1758ad;
+}
+.hero-palm {
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+  filter: drop-shadow(0 5px 8px rgba(0,0,0,.08));
+}
+.hero-palm-left { left: -1rem; top: -1rem; width: clamp(220px, 25vw, 420px); }
+.hero-palm-right { right: -2rem; top: -1rem; width: clamp(210px, 23vw, 370px); }
+.hero-sun {
+  position: absolute;
+  z-index: 7;
+  top: 1.1rem;
+  right: 3.6%;
+  width: clamp(72px, 8vw, 116px);
+  pointer-events: none;
+}
+.hero-sign {
+  position: absolute;
+  z-index: 7;
+  left: .2rem;
+  bottom: 7.8rem;
+  width: clamp(155px, 15vw, 230px);
+  filter: drop-shadow(0 10px 12px rgba(0,0,0,.14));
+}
+.hero-note {
+  position: absolute;
+  z-index: 7;
+  right: .4rem;
+  bottom: 7.7rem;
+  width: clamp(165px, 15vw, 235px);
+  filter: drop-shadow(0 9px 11px rgba(0,0,0,.12));
+}
+.bird-doodles {
+  position: absolute;
+  z-index: 7;
+  right: 14%;
+  top: 8.6rem;
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: .7;
+  transform: rotate(-5deg);
+  letter-spacing: -.2rem;
+}
+
+/* =========================
+   BASE SCRAPBOOK SECTIONS
+   ========================= */
+.scrap-section {
+  position: relative;
+  padding: clamp(3.2rem, 6vw, 5.4rem) 0 clamp(3.4rem, 6vw, 5.6rem);
+  isolation: isolate;
+}
+.scrap-section::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+}
+.friends-section::before,
+.sport-section::before {
+  background-image:
+    linear-gradient(rgba(255,248,231,.78), rgba(255,248,231,.78)),
+    url('../images/decor/paper-texture.jpg');
+}
+.travel-section::before {
+  background-image:
+    linear-gradient(rgba(255,249,232,.50), rgba(255,249,232,.50)),
+    url('../images/decor/map-texture.jpg');
+}
+.content-layer { z-index: 4; }
+.section-heading {
+  position: relative;
+  z-index: 6;
+  margin-bottom: clamp(2.3rem, 4vw, 4rem);
+}
+.section-heading h2 {
+  margin: 0;
+  font-family: "Neucha", cursive;
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: 700;
+  line-height: 1.06;
+}
+.paint-title {
+  position: relative;
+  display: inline-block;
+  padding: .18em .55em .16em;
+  z-index: 0;
+}
+.paint-title::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -.08em -.18em;
+  clip-path: polygon(0 16%, 8% 5%, 16% 13%, 25% 2%, 34% 12%, 44% 5%, 54% 13%, 63% 3%, 73% 12%, 82% 5%, 91% 14%, 100% 6%, 98% 91%, 90% 96%, 80% 90%, 68% 98%, 56% 91%, 44% 97%, 31% 90%, 18% 98%, 8% 91%, 1% 96%);
+  transform: rotate(-.7deg);
+}
+.paint-title.pink::before { background: var(--pink); }
+.paint-title.yellow::before { background: var(--yellow); }
+.paint-title.green::before { background: var(--green); }
+.section-heading p {
+  margin: .65rem auto 0;
+  max-width: 900px;
+  font-family: "Caveat", cursive;
+  font-size: clamp(1.45rem, 2.5vw, 2.45rem);
+  font-weight: 700;
+  color: #175dac;
+  line-height: 1.08;
+}
+.section-palm {
+  position: absolute;
+  z-index: 1;
+  width: clamp(210px, 21vw, 350px);
+  pointer-events: none;
+  opacity: .95;
+}
+.section-palm-left { left: -4.4rem; top: 2.5rem; }
+.section-palm-right { right: -5rem; bottom: 2.5rem; }
+.sport-palm-left { left: -5rem; bottom: 1rem; }
+.sport-palm-right { right: -5rem; top: 2rem; }
+
+/* Polaroids */
+.photo-row { position: relative; z-index: 5; }
+.polaroid {
+  position: relative;
+  width: 100%;
+  max-width: 310px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 11px 11px 18px;
+  box-shadow: 0 12px 22px rgba(70,45,14,.22);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.travel-card { max-width: 355px; }
+.polaroid img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  background: #eef2f4;
+}
+.polaroid figcaption {
+  padding-top: 10px;
+  text-align: center;
+  font-family: "Caveat", cursive;
+  font-size: clamp(1.2rem, 1.55vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.05;
+  color: #252525;
+}
+.tape {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: -14px;
+  width: 76px;
+  height: 27px;
+  transform: translateX(-50%) rotate(-2deg);
+  opacity: .84;
+  box-shadow: 0 2px 3px rgba(0,0,0,.06);
+}
+.tape.beige { background: rgba(220,182,116,.82); }
+.tape.blue { background: rgba(105,194,219,.67); }
+.rotate-left { transform: rotate(-2.8deg); }
+.rotate-right { transform: rotate(2.8deg); }
+.rotate-sm-left { transform: rotate(-1.3deg); }
+.rotate-sm-right { transform: rotate(1.4deg); }
+.rotate-left:hover { transform: rotate(-2.8deg) scale(1.015); }
+.rotate-right:hover { transform: rotate(2.8deg) scale(1.015); }
+.rotate-sm-left:hover { transform: rotate(-1.3deg) scale(1.015); }
+.rotate-sm-right:hover { transform: rotate(1.4deg) scale(1.015); }
+.polaroid:hover { box-shadow: 0 17px 27px rgba(70,45,14,.27); }
+
+/* Notes */
+.paper-note,
+.checklist-note {
+  position: relative;
+  padding: .9rem 1.05rem;
+  background: #fff5d9;
+  font-family: "Caveat", cursive;
+  font-size: clamp(1.2rem, 1.55vw, 1.6rem);
+  font-weight: 700;
+  line-height: 1.08;
+  box-shadow: 0 9px 15px rgba(62,41,18,.15);
+  clip-path: polygon(2% 5%, 97% 0, 100% 95%, 4% 100%);
+}
+.note-pink { background: #ffb7ca; }
+.note-yellow { background: #ffe777; }
+.note-beige { background: #fff2d5; }
+.notes-row { position: relative; z-index: 6; }
+.note-friends-top {
+  position: absolute;
+  z-index: 8;
+  right: 1rem;
+  top: 10.4rem;
+  transform: rotate(2deg);
+}
+.friends-glasses {
+  position: absolute;
+  z-index: 8;
+  right: 1.6rem;
+  top: 6.8rem;
+  width: clamp(100px, 11vw, 155px);
+  filter: drop-shadow(0 5px 6px rgba(0,0,0,.10));
+}
+
+/* Travel decorations */
+.travel-plane {
+  position: absolute;
+  z-index: 3;
+  right: 13.5rem;
+  top: 6.1rem;
+  width: clamp(125px, 16vw, 260px);
+  transform: rotate(-10deg);
+  filter: drop-shadow(0 5px 6px rgba(0,0,0,.08));
+}
+.travel-flag {
+  position: absolute;
+  z-index: 7;
+  right: .8rem;
+  top: 9.2rem;
+  width: clamp(110px, 11vw, 158px);
+  filter: drop-shadow(0 7px 8px rgba(0,0,0,.10));
+}
+.travel-camera {
+  position: absolute;
+  z-index: 7;
+  left: .4rem;
+  bottom: 2rem;
+  width: clamp(110px, 11vw, 165px);
+  transform: rotate(-7deg);
+  filter: drop-shadow(0 7px 8px rgba(0,0,0,.12));
+}
+.greece-stamp {
+  position: absolute;
+  z-index: 6;
+  left: .9rem;
+  top: 10rem;
+  border: 3px solid rgba(50,99,154,.75);
+  color: rgba(50,99,154,.86);
+  padding: .18rem .65rem;
+  font: 800 1.15rem/1 Arial, sans-serif;
+  letter-spacing: .08em;
+  transform: rotate(-13deg);
+  border-radius: 6px;
+}
+.route-text {
+  position: relative;
+  z-index: 5;
+  font-family: "Caveat", cursive;
+  font-size: clamp(1.2rem, 2vw, 1.9rem);
+  font-weight: 700;
+  color: #2a608e;
+}
+
+/* Sport */
+.checklist-note {
+  background: #fff9e8;
+  font-size: clamp(1.05rem, 1.4vw, 1.42rem);
+  transform: rotate(-2deg);
+}
+.checklist-note div + div { margin-top: .32rem; }
+.sport-bottom-row { position: relative; z-index: 6; }
+.energy-strip {
+  width: min(410px, 86%);
+  margin-bottom: .45rem;
+}
+.sport-props {
+  width: min(720px, 100%);
+  filter: drop-shadow(0 10px 12px rgba(0,0,0,.10));
+}
+
+/* Section torn dividers */
+.torn-edge {
+  position: absolute;
+  z-index: 9;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 30px;
+  clip-path: polygon(0 44%, 6% 66%, 13% 38%, 20% 64%, 28% 40%, 35% 67%, 43% 35%, 52% 67%, 61% 39%, 70% 64%, 79% 36%, 88% 64%, 95% 39%, 100% 57%, 100% 100%, 0 100%);
+}
+.torn-blue { background: #1bb7ea; }
+.torn-paper { background: #f7ecd3; }
+
+/* Footer */
+.summer-footer {
+  position: relative;
+  background: linear-gradient(180deg, #25b9eb 0%, #149ed8 100%);
+  color: #fff;
+  padding: 2.6rem 0 2.8rem;
+  clip-path: polygon(0 11%, 7% 4%, 15% 13%, 24% 5%, 33% 14%, 42% 4%, 51% 14%, 61% 5%, 71% 13%, 81% 4%, 90% 13%, 100% 6%, 100% 100%, 0 100%);
+}
+.summer-footer strong {
+  font-family: "Caveat", cursive;
+  font-size: clamp(2.2rem, 4.3vw, 4rem);
+  font-weight: 700;
+}
+.summer-footer span,
+.footer-waves {
+  font-family: "Caveat", cursive;
+  font-size: clamp(1.25rem, 2vw, 2rem);
+  font-weight: 700;
+}
+.footer-waves { font-size: 3rem; letter-spacing: -.4rem; transform: rotate(-5deg); }
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 1199.98px) {
+  .hero-sign { bottom: 6rem; }
+  .hero-note { bottom: 6rem; }
+  .note-friends-top { display: none !important; }
+  .friends-glasses { top: 7.8rem; right: .4rem; }
+}
+
+@media (max-width: 991.98px) {
+  .hero { min-height: 660px; }
+  .hero-content { min-height: 660px; }
+  .hero-beach { width: 118%; min-width: 980px; }
+  .hero-copy { padding-top: 2.8rem; }
+  .hero-sign, .hero-note { display: none !important; }
+  .travel-plane, .travel-flag, .travel-camera { display: none !important; }
+  .section-palm { display: none !important; }
+}
+
+@media (max-width: 767.98px) {
+  .hero { min-height: 610px; }
+  .hero-content { min-height: 610px; }
+  .hero-beach { width: 170%; min-width: 900px; }
+  .hero-copy { width: 92vw; padding-top: 2.4rem; }
+  .hero h1 { font-size: clamp(3.1rem, 15vw, 5rem); }
+  .hero-copy p { font-size: clamp(1.4rem, 7vw, 2.05rem); }
+  .yellow-stroke { width: 72vw; height: 9px; }
+  .hero-sun { width: 68px; right: 1rem; }
+  .bird-doodles { display: none !important; }
+
+  .scrap-section { padding: 3.1rem 0 4rem; }
+  .section-heading { margin-bottom: 2.1rem; }
+  .section-heading h2 { font-size: clamp(1.8rem, 8.5vw, 2.6rem); }
+  .section-heading p { font-size: 1.55rem; padding-inline: .5rem; }
+
+  .photo-row { row-gap: 2rem !important; }
+  .polaroid,
+  .travel-card { max-width: min(90vw, 420px); }
+  .rotate-left, .rotate-right, .rotate-sm-left, .rotate-sm-right { transform: rotate(0); }
+  .rotate-left:hover, .rotate-right:hover, .rotate-sm-left:hover, .rotate-sm-right:hover { transform: scale(1.01); }
+  .friends-row .col-12:nth-child(odd) .polaroid { transform: rotate(-.7deg); }
+  .friends-row .col-12:nth-child(even) .polaroid { transform: rotate(.7deg); }
+
+  .friends-glasses, .greece-stamp { display: none !important; }
+  .notes-row .col-12 { text-align: center !important; }
+  .paper-note { max-width: 300px; }
+  .route-text { font-size: 1.18rem; }
+
+  .checklist-note { width: min(330px, 92vw); }
+  .energy-strip { width: min(360px, 86%); }
+  .sport-props { width: min(620px, 100%); }
+  .summer-footer { padding-top: 2.8rem; }
+}
+
+@media (max-width: 430px) {
+  .hero { min-height: 570px; }
+  .hero-content { min-height: 570px; }
+  .hero-beach { width: 205%; min-width: 820px; }
+  .hero-copy { padding-top: 2rem; }
+  .hero h1 { font-size: 3.35rem; }
+  .hero-copy p { font-size: 1.45rem; }
+  .hero-sun { width: 58px; top: .7rem; }
+  .paint-title { padding-inline: .35em; }
+  .polaroid figcaption { font-size: 1.35rem; }
+  .paper-note { font-size: 1.18rem; }
+}
+
+/* =========================================================
+   PIXEL-PRECISION REFINEMENTS FOR THE PROVIDED LAYOUT
+   Bootstrap still controls the responsive grid; these rules
+   tune proportions, cropping and decorative positioning.
+   ========================================================= */
+
+/* keep decorative layers from ever creating a horizontal scrollbar */
+body, main, .hero, .scrap-section, .summer-footer { width: 100%; max-width: 100%; }
+.hero, .scrap-section { overflow: hidden; }
+
+@media (min-width: 1200px) {
+  .container { max-width: 1280px; }
+
+  /* HERO: more sky, smaller beach composition, no title collisions */
+  .hero,
+  .hero-content { min-height: 790px; height: 790px; }
+  .hero-beach {
+    width: 1160px;
+    min-width: 0;
+    max-width: none;
+    bottom: 0;
+  }
+  .hero-copy {
+    width: 900px;
+    padding-top: 52px;
+  }
+  .hero h1 {
+    font-size: 96px;
+    line-height: .92;
+    white-space: nowrap;
+  }
+  .yellow-stroke {
+    width: 535px;
+    height: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .hero-copy p { font-size: 35px; }
+  .hero-palm-left { width: 235px; left: -38px; top: -18px; }
+  .hero-palm-right { display: none !important; }
+  .hero-sun { width: 130px; top: 8px; right: 36px; }
+  .hero-sign { width: 215px; left: 5px; bottom: 83px; }
+  .hero-note { width: 205px; right: 13px; bottom: 80px; }
+  .bird-doodles { top: 167px; right: 11%; font-size: 25px; }
+
+  /* shared scrapbook sizing */
+  .scrap-section { padding-left: 0; padding-right: 0; }
+  .section-heading { margin-bottom: 58px; }
+  .section-heading h2 { font-size: 49px; }
+  .section-heading p { font-size: 32px; margin-top: 10px; }
+  .paint-title { padding: .12em .5em .15em; }
+
+  /* FRIENDS */
+  .friends-section { padding-top: 40px; padding-bottom: 150px; }
+  .friends-section .section-heading { margin-bottom: 64px; }
+  .friends-row { --bs-gutter-x: 18px; }
+  .friends-row .polaroid {
+    max-width: 294px;
+    padding: 12px 12px 18px;
+  }
+  .friends-row .polaroid img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+  }
+  .friends-row .polaroid figcaption { min-height: 42px; font-size: 26px; }
+  .friends-row .col-xl-3:nth-child(1) img { object-position: 50% 50%; }
+  .friends-row .col-xl-3:nth-child(2) img { object-position: 49% 50%; }
+  .friends-row .col-xl-3:nth-child(3) img { object-position: 50% 44%; }
+  .friends-row .col-xl-3:nth-child(4) img { object-position: 53% 50%; }
+  .friends-glasses { width: 130px; top: 128px; right: 17px; }
+  .note-friends-top { top: 205px; right: 8px; font-size: 25px; }
+  .friends-section .notes-row { margin-top: 58px !important; }
+  .friends-section .paper-note { font-size: 25px; min-width: 210px; }
+  .section-palm-left { width: 245px; left: -105px; top: 12px; }
+  .section-palm-right { width: 245px; right: -92px; bottom: 12px; }
+
+  /* TRAVEL */
+  .travel-section { padding-top: 45px; padding-bottom: 75px; }
+  .travel-section .section-heading { margin-bottom: 52px; }
+  .travel-row-top { --bs-gutter-x: 30px; }
+  .travel-row-top .travel-card {
+    max-width: 305px;
+    padding: 12px 12px 18px;
+  }
+  .travel-row-top .travel-card img {
+    aspect-ratio: 4 / 5;
+    width: 100%;
+    object-fit: cover;
+  }
+  .travel-row-top .travel-card figcaption { font-size: 26px; }
+  .travel-row-bottom {
+    margin-top: 32px !important;
+    --bs-gutter-x: 58px;
+  }
+  .travel-row-bottom .travel-card {
+    max-width: 300px;
+    padding: 12px 12px 18px;
+  }
+  .travel-row-bottom .travel-card img {
+    aspect-ratio: 5 / 4;
+    width: 100%;
+    object-fit: cover;
+  }
+  .travel-row-bottom .travel-card figcaption { font-size: 26px; }
+  .travel-row-top .col-xl-4:nth-child(1) img { object-position: 50% 50%; }
+  .travel-row-top .col-xl-4:nth-child(2) img { object-position: 50% 50%; }
+  .travel-row-top .col-xl-4:nth-child(3) img { object-position: 50% 50%; }
+  .travel-section .notes-row { margin-top: 22px !important; }
+  .travel-section .paper-note { font-size: 24px; min-width: 205px; }
+  .travel-plane { width: 185px; top: 160px; right: 132px; }
+  .travel-flag { width: 130px; top: 176px; right: 12px; }
+  .greece-stamp { top: 181px; left: 16px; }
+  .travel-camera { width: 132px; left: 22px; bottom: 42px; }
+
+  /* SPORT: compact like the mockup; props decorate instead of creating a huge row */
+  .sport-section { padding-top: 44px; padding-bottom: 34px; }
+  .sport-section .section-heading { margin-bottom: 45px; }
+  .sport-row { --bs-gutter-x: 42px; }
+  .sport-row .polaroid {
+    max-width: 265px;
+    padding: 11px 11px 16px;
+  }
+  .sport-row .polaroid img {
+    aspect-ratio: 4 / 5;
+    width: 100%;
+    object-fit: cover;
+  }
+  .sport-row .polaroid figcaption {
+    min-height: 50px;
+    font-size: 23px;
+  }
+  .sport-bottom-row {
+    min-height: 230px;
+    margin-top: 24px !important;
+    align-items: end !important;
+  }
+  .sport-bottom-row .col-lg-3 { padding-bottom: 18px; }
+  .sport-bottom-row .col-lg-6 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .checklist-note { font-size: 20px; padding: 12px 15px; }
+  .energy-strip { width: 315px; margin: 0 auto -2px; }
+  .sport-props { width: 470px; margin-top: -1px; }
+  .sport-bottom-row .paper-note { font-size: 23px; }
+  .sport-palm-left { width: 235px; left: -100px; bottom: -22px; }
+  .sport-palm-right { width: 235px; right: -98px; top: 18px; }
+
+  /* divider and footer scale */
+  .torn-edge { height: 34px; }
+  .summer-footer {
+    min-height: 165px;
+    padding: 48px 0 28px;
+  }
+  .summer-footer strong { font-size: 50px; }
+  .summer-footer span { font-size: 25px; }
+  .footer-waves { font-size: 38px; }
+}
+
+/* tablet: keep photo crops consistent without any overlaps */
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .friends-row .polaroid img,
+  .sport-row .polaroid img { aspect-ratio: 4 / 5; object-fit: cover; width: 100%; }
+  .travel-row-top .travel-card img { aspect-ratio: 4 / 5; object-fit: cover; width: 100%; }
+  .travel-row-bottom .travel-card img { aspect-ratio: 5 / 4; object-fit: cover; width: 100%; }
+}
+
+/* mobile: one clean column, full readability, no absolutely positioned decor over content */
+@media (max-width: 767.98px) {
+  .hero {
+    min-height: 560px;
+    background: linear-gradient(180deg, #4bc1ec 0%, #83dcf8 69%, #f1d8aa 100%);
+  }
+  .hero-content { min-height: 560px; }
+  .hero-beach { width: 900px; min-width: 900px; bottom: 0; }
+  .hero-copy { padding-top: 30px; }
+  .hero h1 { line-height: .95; }
+  .hero-sun { display: block !important; width: 58px; right: 10px; top: 8px; }
+
+  .scrap-section { padding-top: 48px; padding-bottom: 62px; }
+  .section-heading { margin-bottom: 38px; }
+  .photo-row { --bs-gutter-y: 34px; }
+  .polaroid,
+  .travel-card { max-width: min(86vw, 390px); }
+  .friends-row .polaroid img,
+  .sport-row .polaroid img,
+  .travel-row-top .travel-card img {
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    width: 100%;
+  }
+  .travel-row-bottom .travel-card img {
+    aspect-ratio: 5 / 4;
+    object-fit: cover;
+    width: 100%;
+  }
+  .friends-section .notes-row,
+  .travel-section .notes-row { margin-top: 36px !important; }
+  .sport-bottom-row { margin-top: 32px !important; }
+  .sport-props { width: min(92vw, 480px); }
+  .summer-footer { clip-path: polygon(0 8%, 9% 3%, 20% 10%, 32% 4%, 45% 10%, 57% 3%, 70% 10%, 83% 4%, 100% 9%, 100% 100%, 0 100%); }
+}
+
+/* final vertical rhythm alignment against the reference poster */
+@media (min-width: 1200px) {
+  .hero-beach {
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.45) 8%, #000 20%, #000 100%);
+    mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.45) 8%, #000 20%, #000 100%);
+  }
+  .friends-section { padding-bottom: 176px; }
+  .travel-section { padding-bottom: 61px; }
+
+  .sport-section { padding-bottom: 12px; }
+  .sport-bottom-row {
+    min-height: 82px;
+    margin-top: 6px !important;
+  }
+  .sport-bottom-row .col-lg-3 { padding-bottom: 6px; }
+  .energy-strip { width: 286px; margin-bottom: -3px; }
+  .sport-props { width: 410px; }
+
+  .summer-footer {
+    min-height: 188px;
+    padding-top: 54px;
+    padding-bottom: 34px;
+  }
+}
+
+/* sport composition: side notes sit beside the photos, while the props stay compact */
+@media (min-width: 1200px) {
+  .sport-section .section-heading { margin-bottom: 95px; }
+  .sport-section { padding-bottom: 0; }
+  .sport-bottom-row { margin-top: -55px !important; }
+  .energy-strip { margin-bottom: -70px; }
+  .sport-bottom-row .col-lg-3:first-child .checklist-note {
+    transform: translateY(-300px) rotate(-2deg);
+  }
+  .sport-bottom-row .col-lg-3:last-child .paper-note {
+    transform: translateY(-300px) rotate(2.8deg);
+  }
+}
+
+@media (min-width: 1200px) {
+  .sport-row { max-width: 1000px; margin-left: auto; margin-right: auto; }
+  .sport-bottom-row .col-lg-3:first-child .checklist-note {
+    transform: translateY(-390px) rotate(-2deg);
+  }
+  .sport-bottom-row .col-lg-3:last-child .paper-note {
+    transform: translateY(-390px) rotate(2.8deg);
+  }
+}
+
+/* =========================================================
+   REVISION 2 — fixes from annotated screenshots
+   ========================================================= */
+
+/* photos should stay still on hover; opening now happens on click */
+.polaroid,
+.polaroid:hover,
+.rotate-left:hover,
+.rotate-right:hover,
+.rotate-sm-left:hover,
+.rotate-sm-right:hover {
+  transition: box-shadow .18s ease;
+}
+.rotate-left:hover { transform: rotate(-2.8deg); }
+.rotate-right:hover { transform: rotate(2.8deg); }
+.rotate-sm-left:hover { transform: rotate(-1.3deg); }
+.rotate-sm-right:hover { transform: rotate(1.4deg); }
+.polaroid:hover { box-shadow: 0 12px 22px rgba(70,45,14,.22); }
+.js-lightbox { cursor: zoom-in; }
+.js-lightbox:focus-visible {
+  outline: 3px solid rgba(22, 86, 170, .48);
+  outline-offset: 4px;
+}
+
+/* default lightbox */
+body.lightbox-open { overflow: hidden; }
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(7, 13, 24, .84);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .18s ease, visibility .18s ease;
+}
+.lightbox-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.lightbox-figure {
+  margin: 0;
+  width: min(96vw, 1220px);
+  max-height: 94vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .7rem;
+}
+.lightbox-image {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: calc(94vh - 4rem);
+  border-radius: 8px;
+  box-shadow: 0 22px 50px rgba(0, 0, 0, .35);
+  background: #fff;
+}
+.lightbox-caption {
+  color: #fff;
+  text-align: center;
+  font-family: "Caveat", cursive;
+  font-size: clamp(1.35rem, 2vw, 2rem);
+  font-weight: 700;
+}
+.lightbox-close {
+  position: absolute;
+  top: .8rem;
+  right: 1rem;
+  width: 46px;
+  height: 46px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255,255,255,.15);
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+@media (min-width: 1200px) {
+  /* HERO */
+  .hero,
+  .hero-content { min-height: 770px; height: 770px; }
+  .hero-palm-left {
+    width: 210px;
+    left: -22px;
+    top: -6px;
+  }
+  .hero-sun {
+    width: 116px;
+    top: 40px;
+    right: 96px;
+  }
+  .hero-sign {
+    width: 188px;
+    left: 28px;
+    bottom: 26px;
+  }
+  .hero-note {
+    width: 198px;
+    right: 28px;
+    bottom: 58px;
+  }
+  .yellow-stroke {
+    width: 505px;
+    height: 8px;
+    margin-top: 8px;
+    margin-bottom: 13px;
+    transform: rotate(-1.4deg);
+  }
+
+  /* FRIENDS */
+  .friends-section {
+    padding-top: 42px;
+    padding-bottom: 44px;
+  }
+  .friends-section .section-palm { display: none !important; }
+  .friends-section .notes-row { display: none !important; }
+  .friends-section .torn-edge {
+    display: none;
+  }
+  .friends-section .section-heading { margin-bottom: 48px; }
+  .friends-row .polaroid { max-width: 290px; }
+  .friends-glasses {
+    width: 112px;
+    top: 132px;
+    right: 58px;
+  }
+  .note-friends-top {
+    top: 182px;
+    right: 24px;
+    font-size: 24px;
+  }
+
+  /* TRAVEL */
+  .travel-section {
+    padding-top: 22px;
+    padding-bottom: 42px;
+  }
+  .travel-section .section-heading { margin-bottom: 38px; }
+  .travel-plane {
+    right: 112px;
+    top: 148px;
+    width: 150px;
+  }
+  .travel-flag { display: none !important; }
+  .travel-section .notes-row {
+    margin-top: 8px !important;
+    position: relative;
+    z-index: 7;
+  }
+  .travel-section .notes-row > .col-xl-3:first-child {
+    padding-left: 8.5rem;
+  }
+  .travel-section .notes-row > .col-xl-3:last-child {
+    margin-top: .25rem;
+  }
+  .travel-section .paper-note {
+    min-width: 198px;
+    font-size: 22px;
+  }
+  .travel-camera {
+    width: 92px;
+    left: 18px;
+    bottom: 72px;
+    transform: rotate(-4deg);
+    z-index: 5;
+  }
+
+  /* SPORT */
+  .sport-section {
+    padding-top: 28px;
+    padding-bottom: 10px;
+  }
+  .sport-section .section-heading {
+    margin-bottom: 58px;
+  }
+  .sport-row {
+    max-width: 1100px;
+    margin-inline: auto;
+    --bs-gutter-x: 18px;
+  }
+  .sport-photo-left .polaroid,
+  .sport-photo-right .polaroid {
+    max-width: 250px;
+  }
+  .sport-photo-center .polaroid {
+    max-width: 338px;
+  }
+  .sport-photo-center .polaroid img {
+    aspect-ratio: 1 / 1.15;
+    object-position: center top;
+  }
+  .sport-photo-left .polaroid img,
+  .sport-photo-right .polaroid img {
+    aspect-ratio: 4 / 5;
+  }
+  .sport-row .polaroid figcaption {
+    min-height: 48px;
+    font-size: 21px;
+  }
+  .sport-bottom-row {
+    position: relative;
+    min-height: 156px;
+    margin-top: -8px !important;
+    align-items: end !important;
+  }
+  .sport-checklist-col {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-top: 4px;
+    transform: translateY(-238px);
+    z-index: 7;
+  }
+  .sport-note-col {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    transform: translateY(-210px);
+    z-index: 7;
+  }
+  .sport-note-col .paper-note {
+    font-size: 22px;
+  }
+  .sport-props-col {
+    position: relative;
+    transform: translateX(-268px);
+    align-items: flex-end !important;
+  }
+  .sport-props-col .energy-strip {
+    width: 290px;
+    margin: 0 0 -54px;
+  }
+  .sport-props-col .sport-props {
+    width: 385px;
+  }
+  .sport-palm-right {
+    width: 210px;
+    right: -82px;
+    top: 18px;
+  }
+}
+
+/* tablet cleanup */
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .friends-section .notes-row { display: none !important; }
+  .friends-section { padding-bottom: 48px; }
+  .friends-section .torn-edge { display: none; }
+  .travel-camera { width: 84px; left: 10px; bottom: 20px; }
+  .travel-flag { display: none !important; }
+  .sport-row .col-md-4:nth-child(2) .polaroid { max-width: 330px; }
+  .sport-row .col-md-4:nth-child(1) .polaroid,
+  .sport-row .col-md-4:nth-child(3) .polaroid { max-width: 250px; }
+  .sport-props-col { order: 3 !important; }
+}
+
+/* mobile */
+@media (max-width: 767.98px) {
+  .yellow-stroke { height: 6px; width: 68vw; }
+  .friends-section .notes-row,
+  .travel-flag,
+  .travel-camera,
+  .travel-plane,
+  .friends-glasses,
+  .note-friends-top { display: none !important; }
+  .friends-section .torn-edge { display: none; }
+  .friends-section { padding-bottom: 48px; }
+
+  .sport-photo-center .polaroid { max-width: min(88vw, 360px); }
+  .sport-photo-left .polaroid,
+  .sport-photo-right .polaroid { max-width: min(82vw, 320px); }
+  .sport-bottom-row {
+    margin-top: 24px !important;
+    row-gap: 1rem;
+  }
+  .sport-props-col {
+    order: 3 !important;
+  }
+  .sport-checklist-col { order: 2 !important; }
+  .sport-note-col { order: 4 !important; }
+  .sport-props-col .energy-strip { margin-bottom: -40px; width: min(72vw, 290px); }
+  .sport-props-col .sport-props { width: min(88vw, 390px); }
+}
+
+@media (max-width: 767.98px) {
+  .rotate-left:hover,
+  .rotate-right:hover,
+  .rotate-sm-left:hover,
+  .rotate-sm-right:hover {
+    transform: rotate(0) !important;
+  }
+  .friends-row .col-12:nth-child(odd) .polaroid:hover { transform: rotate(-.7deg) !important; }
+  .friends-row .col-12:nth-child(even) .polaroid:hover { transform: rotate(.7deg) !important; }
+}
+
+/* =========================================================
+   REVISION 3 — pixel alignment pass from the marked screenshots
+   ========================================================= */
+@media (min-width: 1200px) {
+  /* 1. Hero: put the highlighted pieces into the requested zones. */
+  .hero-sun {
+    width: 230px;
+    top: 72px;
+    right: 105px;
+  }
+  .hero-sign {
+    width: 300px;
+    left: -290px;
+    bottom: 8px;
+  }
+  .hero-note {
+    width: 210px;
+    right: -100px;
+    bottom: 48px;
+  }
+  .yellow-stroke {
+    width: 500px;
+    height: 6px;
+    margin-top: 8px;
+    margin-bottom: 13px;
+    transform: rotate(-1deg);
+  }
+
+  /* 2. Friends: no bottom stickers/palms, but keep the section ending
+     at a calm, deliberate baseline instead of snapping immediately. */
+  .friends-section {
+    padding-bottom: 145px;
+  }
+
+  /* 4. Travel: camera sits beside/below the note, never over its text. */
+  .travel-camera {
+    width: 96px;
+    left: 6px;
+    bottom: 28px;
+  }
+  .travel-section .notes-row > .col-xl-3:first-child {
+    padding-left: 7.5rem;
+    transform: translateY(-10px);
+  }
+
+  /* 5. Sport: exact three-part desktop composition. The middle photo is
+     deliberately much wider while keeping almost the same height. */
+  .sport-row {
+    display: grid;
+    grid-template-columns: 260px 680px 260px;
+    column-gap: 20px;
+    max-width: 1280px;
+    width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 0;
+  }
+  .sport-row > .sport-photo-col {
+    width: auto;
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .sport-photo-left { grid-column: 1; }
+  .sport-photo-center { grid-column: 2; }
+  .sport-photo-right { grid-column: 3; }
+  .sport-photo-left .polaroid,
+  .sport-photo-right .polaroid {
+    max-width: 250px;
+  }
+  .sport-photo-center .polaroid {
+    width: 660px;
+    max-width: 660px;
+  }
+  .sport-photo-center .polaroid img {
+    width: 100%;
+    height: 385px;
+    aspect-ratio: auto;
+    object-fit: cover;
+    object-position: 50% 36%;
+  }
+  .sport-photo-center .polaroid figcaption {
+    min-height: 48px;
+  }
+
+  /* Props: move the whole black-marked group into the yellow-marked area. */
+  .sport-props-col {
+    transform: translate(-538px, -24px);
+  }
+  .sport-props-col .energy-strip {
+    width: 290px;
+  }
+  .sport-props-col .sport-props {
+    width: 385px;
+  }
+}
+
+/* keep Bootstrap stacking intact below desktop */
+@media (max-width: 1199.98px) {
+  .sport-row {
+    display: flex;
+    width: auto;
+  }
+  .sport-photo-center .polaroid img {
+    height: auto;
+  }
+}
+
+/* narrow phones: keep the decorative sun away from the title */
+@media (max-width: 575.98px) {
+  .hero-sun { display: none !important; }
+}
+
+/* =========================================================
+   REVISION 4 — final polish: stable offline fallbacks, spacing and desktop balance
+   ========================================================= */
+:root {
+  --font-hand: "Caveat", "Segoe Print", "Comic Neue", "Comic Sans MS", cursive, sans-serif;
+  --font-title: "Marck Script", "Segoe Script", "URW Chancery L", "Segoe Print", "Comic Neue", cursive, sans-serif;
+  --font-marker: "Neucha", "Segoe Print", "Comic Neue", "Comic Sans MS", cursive, sans-serif;
+}
+
+body { font-family: var(--font-marker); }
+.hero h1 { font-family: var(--font-title); }
+.hero-copy p,
+.section-heading p,
+.polaroid figcaption,
+.paper-note,
+.checklist-note,
+.route-text,
+.summer-footer strong,
+.summer-footer span,
+.footer-waves,
+.lightbox-caption { font-family: var(--font-hand); }
+.section-heading h2 { font-family: var(--font-marker); }
+
+/* Keep the image cards completely still under the pointer. */
+.polaroid,
+.polaroid:hover {
+  transition: box-shadow .15s ease;
+}
+
+/* The lower edge of the friends block is intentional and clean. */
+.friends-section::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: rgba(174, 146, 92, .08);
+  pointer-events: none;
+}
+
+@media (min-width: 1200px) {
+  /* Slightly more breathing room around the travel bottom notes. */
+  .travel-section .notes-row {
+    min-height: 92px;
+    align-items: center !important;
+  }
+  .travel-camera {
+    bottom: 34px;
+  }
+
+  /* Sport stickers should read as side decorations, not cover the photos. */
+  .sport-checklist-col,
+  .sport-note-col {
+    pointer-events: none;
+  }
+  .sport-checklist-col .checklist-note,
+  .sport-note-col .paper-note {
+    pointer-events: auto;
+  }
+
+  /* Keep props in the requested lower-left target while adding a little air. */
+  .sport-props-col {
+    transform: translate(-528px, -12px);
+  }
+  .sport-props-col .sport-props {
+    width: 390px;
+  }
+}
+
+@media (min-width: 1500px) {
+  .sport-checklist-col {
+    transform: translate(-150px, -238px);
+  }
+  .sport-note-col {
+    transform: translate(145px, -210px);
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1499.98px) {
+  .sport-checklist-col {
+    transform: translate(-30px, -238px);
+  }
+  .sport-note-col {
+    transform: translate(30px, -210px);
+  }
+}
+
+@media (max-width: 767.98px) {
+  body { font-family: var(--font-marker); }
+  .hero h1 { font-family: var(--font-title); }
+  .hero-sun { display: none !important; }
+  .lightbox-overlay { padding: .65rem; }
+  .lightbox-close {
+    top: .55rem;
+    right: .55rem;
+    width: 42px;
+    height: 42px;
+  }
+}
+
+/* =========================================================
+   REVISION 5 — final requested move of the sport bottom decor
+   ========================================================= */
+@media (min-width: 1200px) {
+  .sport-bottom-row {
+    position: relative;
+    min-height: 255px;
+    margin-top: 4px !important;
+    overflow: visible;
+  }
+
+  /* put the props group into the left highlighted zone */
+  .sport-props-col {
+    position: absolute;
+    left: -105px;
+    bottom: -8px;
+    width: 430px;
+    transform: none !important;
+    display: block !important;
+    text-align: left !important;
+    z-index: 6;
+  }
+  .sport-props-col .sport-props {
+    position: relative;
+    z-index: 2;
+    width: 400px;
+    margin: 0;
+  }
+
+  /* move the pink ribbon into the right highlighted zone and enlarge it */
+  .sport-props-col .energy-strip {
+    position: absolute;
+    left: 470px;
+    top: 22px;
+    width: 350px;
+    margin: 0;
+    z-index: 1;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1499.98px) {
+  .sport-props-col {
+    left: -70px;
+  }
+  .sport-props-col .energy-strip {
+    left: 435px;
+    top: 28px;
+    width: 330px;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .sport-props-col .energy-strip,
+  .sport-props-col .sport-props {
+    position: static;
+  }
+}
+
+/* =========================================================
+   REVISION 6 — final sport-bottom placement from the last markup
+   ========================================================= */
+@media (min-width: 1200px) {
+  /* Left props group: center it inside the user's yellow target area. */
+  .sport-props-col {
+    left: -125px;
+    bottom: 82px;
+    width: 440px;
+  }
+  .sport-props-col .sport-props {
+    width: 440px;
+    margin: 0;
+  }
+
+  /* Pink "Лето заряжает!" ribbon: move to the green target and enlarge it. */
+  .sport-props-col .energy-strip {
+    left: 482px;
+    top: 4px;
+    width: 590px;
+    margin: 0;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1499.98px) {
+  .sport-props-col {
+    left: -92px;
+    bottom: 72px;
+    width: 420px;
+  }
+  .sport-props-col .sport-props {
+    width: 420px;
+  }
+  .sport-props-col .energy-strip {
+    left: 450px;
+    top: 8px;
+    width: 540px;
+  }
+}
+
+/* =========================================================
+   REVISION 7 — last visual cleanup from the final comments
+   ========================================================= */
+@media (min-width: 1200px) {
+  /* HERO: hide edge seams and slightly rebalance the decorative items. */
+  .hero-beach {
+    width: 1290px;
+    min-width: 0;
+    max-width: none;
+    bottom: 0;
+    clip-path: inset(0 84px 0 84px);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.45) 8%, #000 20%, #000 100%);
+    mask-image: linear-gradient(to bottom, transparent 0, rgba(0,0,0,.45) 8%, #000 20%, #000 100%);
+  }
+  .hero-palm-left {
+    width: 228px;
+    left: -2px;
+    top: -6px;
+    clip-path: inset(0 28px 0 0);
+  }
+  .hero-sign {
+    width: 236px;
+    left: 10px;
+    bottom: 22px;
+  }
+  .hero-note {
+    width: 212px;
+    right: 14px;
+    bottom: 56px;
+    clip-path: inset(0 0 0 36px);
+  }
+  .yellow-stroke {
+    width: 540px;
+    height: 5px;
+    margin-top: 12px;
+    margin-bottom: 13px;
+    transform: rotate(-1deg);
+  }
+
+  /* SPORT: enlarge props and move the ribbon into the marked green zone. */
+  .sport-bottom-row {
+    min-height: 305px;
+    overflow: visible;
+  }
+  .sport-props-col {
+    left: -96px;
+    bottom: 74px;
+    width: 560px;
+    z-index: 6;
+  }
+  .sport-props-col .sport-props {
+    width: 520px;
+    margin: 0;
+  }
+  .sport-props-col .energy-strip {
+    left: 540px;
+    top: 54px;
+    width: 480px;
+    margin: 0;
+    z-index: 1;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1499.98px) {
+  .hero-beach {
+    width: 1230px;
+    clip-path: inset(0 72px 0 72px);
+  }
+  .hero-sign {
+    width: 220px;
+    left: 6px;
+  }
+  .hero-note {
+    width: 202px;
+    right: 10px;
+  }
+
+  .sport-props-col {
+    left: -70px;
+    bottom: 66px;
+    width: 520px;
+  }
+  .sport-props-col .sport-props {
+    width: 480px;
+  }
+  .sport-props-col .energy-strip {
+    left: 500px;
+    top: 56px;
+    width: 440px;
+  }
+}
+
+/* =========================================================
+   REVISION 8 — flat hero poster + final sport note move
+   ========================================================= */
+.hero-flat {
+  min-height: auto !important;
+  height: auto !important;
+  background: transparent !important;
+  overflow: visible !important;
+}
+.hero-flat .container-fluid {
+  max-width: 100%;
+}
+.hero-poster-flat {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.hero-flat::after,
+.hero-flat .torn-edge,
+.hero-flat .hero-beach,
+.hero-flat .hero-palm,
+.hero-flat .hero-sun,
+.hero-flat .hero-content,
+.hero-flat .hero-copy,
+.hero-flat .hero-sign,
+.hero-flat .hero-note,
+.hero-flat .bird-doodles {
+  display: none !important;
+}
+
+@media (min-width: 1200px) {
+  .sport-bottom-row {
+    position: relative;
+    min-height: 310px;
+  }
+  .sport-note-col {
+    position: absolute;
+    right: 115px;
+    bottom: 42px;
+    transform: none !important;
+    z-index: 8;
+    width: auto;
+    text-align: center !important;
+    display: block !important;
+  }
+  .sport-note-col .paper-note {
+    font-size: 24px;
+    margin: 0;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1499.98px) {
+  .sport-note-col {
+    right: 86px;
+    bottom: 38px;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .hero-flat { background: transparent !important; }
+  .hero-poster-flat {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* =========================================================
+   REVISION 9 — requested mobile sport spacing + new hero image
+   ========================================================= */
+@media (max-width: 767.98px) {
+  /* Keep the ribbon readable and place the props a little lower on phones. */
+  .sport-props-col .energy-strip {
+    margin-bottom: 12px !important;
+  }
+  .sport-props-col .sport-props {
+    margin-top: 22px !important;
+  }
+}
+
+/* =========================================================
+   REVISION 10 — move the yellow sport note into the lower-right area
+   ========================================================= */
+@media (min-width: 1200px) {
+  .sport-note-col {
+    right: 128px;
+    bottom: 98px;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1499.98px) {
+  .sport-note-col {
+    right: 102px;
+    bottom: 92px;
+  }
+}
